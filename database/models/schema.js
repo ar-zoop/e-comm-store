@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
+
 const userSchema = new Schema({
     name: { type: String, require: true, default: "Anonymous" },
     email: { type: String, require: true }, // String is shorthand for {type: String}
@@ -62,11 +63,13 @@ const categoriesSchema = new Schema({
 })
 
 const user = new model("users", userSchema);
-const category = new model("categoriesSchema", categoriesSchema);
+const category = new model("categories", categoriesSchema);
 const cart = new model("cart", cartSchema);
 const product= new model("products", productSchema);
+
 
 module.exports = user;
 module.exports= product;
 module.exports= cart;
 module.exports= category;
+

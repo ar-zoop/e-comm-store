@@ -1,25 +1,20 @@
 const mongo=require('./database/connection.js');
-const schema = require('./database/models/schema.js');
 const express = require('express');
-const appRoute = express();
+const app = express();
+const routes= require('./route/index.route.js');
+const { urlencoded } = require('express');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Connection to mongoDB
-const appMongo = async () => {
-    const connect = await mongo.connectToDb();
+const main = async () => {
+        app.use("/", routes);
+        await mongo.connectToDb();        
+        app.listen(5050);
 };
-appMongo();
-
-//Create object of the model and add it to the collection
-const schemaObj= new schema({});
-console.log(schemaObj);
-userObject.save();
-
-//Routing
-appRoute.get('/', (req, res) => {
-    res.send('hello world')
-})
+main();
 
 
-appRoute.listen(5050);
+
 
 
