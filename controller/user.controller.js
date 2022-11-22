@@ -1,5 +1,5 @@
 //call the model and run queries on user model
-const userModel=require('../database/models/schema.js');
+const userModel=require('../database/models/user.js');
 
 exports.getUserDetails = async (req, res) => {
     try {
@@ -23,16 +23,17 @@ exports.getUserDetails = async (req, res) => {
 }
 
 // this will be shown on webpage.
-exports.setUserDetails = async (req, res) => {   
+exports.setUserDetails = async (req, res) => { 
+    
     try {
-        const userData = req.body;
+        const [name, address, dob] = req.body;
         console.log(userData);
         if(req.body.userData!=" ")
         {res.send({
             statusCode: 200,
             message: "Data sent successfully",
             error: false,
-            data: userData
+            data: name
 
         });}
     } catch (error) {

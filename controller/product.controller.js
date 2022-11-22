@@ -1,4 +1,4 @@
-const productModel = require('../database/models/schema.js');;
+const productModel = require('../database/models/product.js');;
 
 exports.getProductDetails= async(req,res)=>{
     try {

@@ -1,4 +1,4 @@
-const cartModel = require('../database/models/schema.js');
+const cartModel = require('../database/models/cart.js');
 
 exports.getCartDetails = async (req, res) => {
     try {
@@ -7,7 +7,7 @@ exports.getCartDetails = async (req, res) => {
             statusCode: 200,
             message: "list of all the users",
             error: false,
-            data: cart,
+            data: cart
 
         });
     } catch (error) {
@@ -15,7 +15,7 @@ exports.getCartDetails = async (req, res) => {
             statusCode: 404,
             message: error.message,
             error: true,
-            data: null,
+            data: null
         });
     }
 }

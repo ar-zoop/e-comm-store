@@ -1,6 +1,6 @@
 const mongoose= require('mongoose');
 exports.connectToDb=async()=>{
-    mongoose.connect("mongodb+srv://arzoop:Arzoo101@cluster0.o6czhnf.mongodb.net/test")
+    mongoose.connect(process.env.MONGODB_URI)
         .then(() => {
             console.log("Connected!");
         })

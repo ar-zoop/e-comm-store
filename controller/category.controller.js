@@ -1,5 +1,9 @@
 
-const categoryModel = require('../database/models/schema.js');
+const categoryModel = require('../database/models/category.js');
+
+
+// const schemaObj = new Schema({});
+// schemaObj.save();
 
 
 exports.getCategoryDetails = async (req, res) => {
