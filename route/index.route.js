@@ -4,9 +4,23 @@ const userRoute= require('./user.route.js');
 const categoryRoute = require('./category.route.js');
 const cartRoute = require('./cart.route.js');
 const productRoute = require('./product.route.js');
-const authRoute = require('./auth.route.js');
-const loginRoute= require('./login.route.js');
+const signupRoute = require('./auth.signup.route.js');
+const loginRoute= require('./auth.login.route.js');
+const authMiddleware= require('../middleware/auth.middleware');
 const { urlencoded } = require('express');
+
+//Time for middleware in every function for verification of token.
+router.use(authMiddleware.verifyToken);
+
+router.use("/signup", signupRoute);
+router.post('/', (req, res) => {
+    res.send("auth.signup.route.js")
+});
+
+router.use("/login", loginRoute);
+router.post('/', (req, res) => {
+    res.send("auth.login.route.js")
+});
 
 router.use("/user", userRoute);
 router.get('/', (req, res) => {
@@ -28,14 +42,6 @@ router.get('/', (req, res) => {
     res.send('category.route.js')
 });
 
-router.use("/signup", authRoute);
-router.post('/',(req,res)=>{
-    res.send("auth.route.js")
-});
 
-router.use("/login", loginRoute);
-router.post('/', (req, res) => {
-    res.send("login.route.js")
-});
 
 module.exports= router;
