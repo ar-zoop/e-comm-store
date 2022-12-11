@@ -19,7 +19,8 @@ exports.login = async (req, res) => {
                     statusCode: 200,
                     error: false,
                     message: "Credentials match!",
-                    data: token
+                    token: token,
+                    data:userExist._id,
                 });
                 
             }
@@ -46,7 +47,7 @@ exports.login = async (req, res) => {
     catch (error) {
 
     res.send({
-        statusCode: 404,
+        statusCode: 401,
         error: true,
         message: error.message,
         data: null

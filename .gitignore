@@ -1,2 +1,4 @@
 /node_modules
 /.env
+/route/practice.js
+/client/node_modules

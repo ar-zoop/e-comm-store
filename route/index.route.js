@@ -10,7 +10,7 @@ const authMiddleware= require('../middleware/auth.middleware');
 const { urlencoded } = require('express');
 
 //Time for middleware in every function for verification of token.
-router.use(authMiddleware.verifyToken);
+// router.use(authMiddleware.verifyToken);
 
 router.use("/signup", signupRoute);
 router.post('/', (req, res) => {
